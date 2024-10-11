@@ -122,6 +122,7 @@ typedef enum FunctionPatcherTargetProcess {
 typedef uint32_t PatchedFunctionHandle;
 #define FUNCTION_REPLACEMENT_DATA_STRUCT_VERSION 0x00000003
 
+#ifdef FUNCTION_PATCHER_LEGACY
 typedef struct function_replacement_data_v2_t {
     uint32_t VERSION;
     uint32_t physicalAddr;                       /* [needs to be filled]  */
@@ -132,6 +133,7 @@ typedef struct function_replacement_data_v2_t {
     const char *function_name;                   /* [needs to be filled] name of the function we want to replace */
     FunctionPatcherTargetProcess targetProcess;  /* [will be filled] */
 } function_replacement_data_v2_t;
+#endif
 
 typedef struct function_replacement_data_t {
     uint32_t version;
